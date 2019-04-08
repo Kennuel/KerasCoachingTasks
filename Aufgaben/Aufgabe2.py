@@ -11,9 +11,6 @@ x_test = tf.keras.utils.normalize(x_test, 1)
 CHANNELS = 1
 x_train = x_train.reshape(x_train.shape[0], 28, 28, CHANNELS)
 x_test = x_test.reshape(x_test.shape[0], 28, 28, CHANNELS)
-
-y_train =tf.keras.utils.to_categorical(y_train, 10)
-y_test = tf.keras.utils.to_categorical(y_test, 10)
  
 # Modelaufbauen
 

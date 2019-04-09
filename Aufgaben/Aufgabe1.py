@@ -21,7 +21,7 @@ model.add(tf.keras.layers.Flatten(input_shape=(28, 28)))
 model.add(tf.keras.layers.Dense(10,activation=tf.nn.softmax))
  
 
-model.compile(optimizer='adam', loss='sparse_categorical_crossentropy',metrics=['accuracy',tf.keras.metrics.mean_squared_error])
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy',metrics=['accuracy'])
 
 # Tensorboard
 # Load with: "tensorboard --logdir ./Graph" inside the same directory
@@ -31,7 +31,7 @@ tbCallBack = tf.keras.callbacks.TensorBoard(log_dir='./Graph', histogram_freq=0,
 model.fit(x_train,y_train, epochs=3, callbacks=[tbCallBack])
 
 # Auswerten
-val_loss, val_acc, val_mse = model.evaluate(x_test, y_test)
+val_loss, val_acc = model.evaluate(x_test, y_test)
 print("")
 print("val_loss:", val_loss)
 print("val_mse:", val_mse)

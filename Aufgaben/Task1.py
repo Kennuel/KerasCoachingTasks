@@ -1,10 +1,10 @@
 import tensorflow as tf
  
-#Datenladen
+#Load data 
 mnist = tf.keras.datasets.mnist
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
  
-# Datenvorbereiten, kann man hier was verbesern?
+# data preperation, what needs to be done? Have you heard of normalization before?
 
 
 # Model aufbauen
@@ -14,7 +14,7 @@ model = tf.keras.models.Sequential()
 model.add(tf.keras.layers.Flatten(input_shape=(28, 28)))
  
 
-# TODO: Füge eine oder mehrere Denselayer hinzu mit bspw. activation=tf.nn.relu
+# TODO: Add one or more dense layers with the standard activation function: tf.nn.relu
 
 
 ## Ausgabeschicht

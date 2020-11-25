@@ -7,17 +7,17 @@ mnist = tf.keras.datasets.mnist
 # data preperation, what needs to be done? Have you heard of normalization before?
 
 
-# Model aufbauen
+# Create a model
 model = tf.keras.models.Sequential()
 
-## Eingabeschicht
+## add the input layer
 model.add(tf.keras.layers.Flatten(input_shape=(28, 28)))
  
 
 # TODO: Add one or more dense layers with the standard activation function: tf.nn.relu
 
 
-## Ausgabeschicht
+## Output layer
 model.add(tf.keras.layers.Dense(10,activation=tf.nn.softmax))
  
 
@@ -27,10 +27,10 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy',metrics=[
 # Load with: "tensorboard --logdir ./Graph" inside the same directory
 tbCallBack = tf.keras.callbacks.TensorBoard(log_dir='./Graph', histogram_freq=0, write_graph=True, write_images=True)
 
-# Modeltrainieren
+# train your model on the data
 model.fit(x_train,y_train, epochs=3, callbacks=[tbCallBack])
 
-# Auswerten
+# evaluate some metrics - loss = sparse_categorical_crossentropy (used for multiclass classification)
 val_loss, val_acc = model.evaluate(x_test, y_test)
 print("")
 print("val_loss:", val_loss)
